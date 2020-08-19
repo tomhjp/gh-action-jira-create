@@ -1,0 +1,35 @@
+name: Jira Search
+description: Find a specific Jira issue
+inputs:
+  project:
+    description: The project key to create the issue in
+    required: true
+  issuetype:
+    description: The issue type for the ticket
+    required: true
+  summary:
+    description: The title of the issue
+    required: true
+  description:
+    description: The body of the issue
+    required: true
+  extraFields:
+    description: A JSON map specifying any additional fields to set in the create issue payload
+    required: true
+    default: '{}'
+outputs:
+  issue:
+    description: Key of the issue created
+    value: ${{ steps.create.outputs.key }}
+runs:
+  using: 'composite'
+  steps:
+    - run: cd ${GITHUB_ACTION_PATH} && go run main.go
+      id: create
+      shell: bash
+      env:
+        INPUT_PROJECT: ${{ inputs.project }}
+        INPUT_ISSUE_TYPE: ${{ inputs.issuetype }}
+        INPUT_SUMMARY: ${{ inputs.summary }}
+        INPUT_DESCRIPTION: ${{ inputs.description }}
+        INPUT_EXTRA_FIELDS: ${{ inputs.extraFields }}
