@@ -15,7 +15,7 @@ inputs:
     required: true
   extraFields:
     description: A JSON map specifying any additional fields to set in the create issue payload
-    required: true
+    required: false
     default: '{}'
 outputs:
   issue:
