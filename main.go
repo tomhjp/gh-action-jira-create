@@ -9,6 +9,8 @@ import (
 	"net/url"
 	"os"
 
+	"github.com/kalafut/m2j"
+
 	"github.com/tomhjp/gh-action-jira/config"
 	"github.com/tomhjp/gh-action-jira/jira"
 )
@@ -105,7 +107,7 @@ func constructPayload(project, issueType, summary, description string, extraFiel
 				issueType,
 			},
 			"summary":     summary,
-			"description": description,
+			"description": m2j.MDToJira(description),
 		},
 	}
 	for key, value := range extraFields {
