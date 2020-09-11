@@ -1,5 +1,5 @@
-name: Jira Search
-description: Find a specific Jira issue
+name: Create Jira Ticket
+description: Create a Jira ticket to track a GitHub Issue or Pull Request
 inputs:
   project:
     description: The project key to create the issue in
