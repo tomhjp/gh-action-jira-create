@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/url"
 	"os"
@@ -29,7 +30,22 @@ func create() error {
 	}
 	issueType := os.Getenv("INPUT_ISSUE_TYPE")
 	summary := os.Getenv("INPUT_SUMMARY")
-	description := os.Getenv("INPUT_DESCRIPTION")
+	descriptionString := os.Getenv("INPUT_DESCRIPTION")
+	descriptionFile := os.Getenv("INPUT_DESCRIPTION_FILE")
+	if descriptionString != "" && descriptionFile != "" {
+		return errors.New("cannot provide both `description` and `description_file`")
+	}
+	var description string
+	if descriptionString != "" {
+		description = descriptionString
+	} else {
+		fmt.Printf("Reading description contents from file %q", descriptionFile)
+		contents, err := ioutil.ReadFile(descriptionFile)
+		if err != nil {
+			return err
+		}
+		description = string(contents)
+	}
 	extraFieldsString := os.Getenv("INPUT_EXTRA_FIELDS")
 	extraFields := map[string]interface{}{}
 	err := json.Unmarshal([]byte(extraFieldsString), &extraFields)

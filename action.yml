@@ -11,8 +11,11 @@ inputs:
     description: The title of the issue
     required: true
   description:
-    description: The body of the issue
-    required: true
+    description: The body of the issue. Mutually exclusive with `description_file`
+    required: false
+  description_file:
+    description: The file containing the body of the issue. Mutually exlusive with `description`
+    required: false
   extraFields:
     description: A JSON map specifying any additional fields to set in the create issue payload
     required: false
@@ -32,4 +35,5 @@ runs:
         INPUT_ISSUE_TYPE: ${{ inputs.issuetype }}
         INPUT_SUMMARY: ${{ inputs.summary }}
         INPUT_DESCRIPTION: ${{ inputs.description }}
+        INPUT_DESCRIPTION_FILE: ${{ inputs.description_file }}
         INPUT_EXTRA_FIELDS: ${{ inputs.extraFields }}
