@@ -10,6 +10,7 @@ import (
 	"os"
 
 	"github.com/tomhjp/gh-action-jira/config"
+	"github.com/tomhjp/gh-action-jira/format"
 	"github.com/tomhjp/gh-action-jira/jira"
 )
 
@@ -32,12 +33,17 @@ func create() error {
 	extraFields := map[string]interface{}{}
 	err := json.Unmarshal([]byte(extraFieldsString), &extraFields)
 	if err != nil {
-		return fmt.Errorf("failed to deserialise extraFields: %s", err)
+		return fmt.Errorf("failed to deserialise extraFields: %w", err)
 	}
 
 	config, err := config.ReadConfig()
 	if err != nil {
 		return err
+	}
+
+	description, err = format.GitHubToJira(description)
+	if err != nil {
+		return fmt.Errorf("failed to convert GitHub markdown to Jira: %w", err)
 	}
 
 	key, err := createIssue(config, project, issueType, summary, description, extraFields)
