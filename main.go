@@ -54,8 +54,9 @@ func create() error {
 	fmt.Printf("Created issue %s\n", key)
 
 	// Special format log line to set output for the action.
-	// See https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-run-steps-actions.
-	fmt.Printf("::set-output name=key::%s\n", key)
+	// The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. 
+	// For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+	fmt.Printf("echo \"key=%s\" >> $GITHUB_OUTPUT\n", key)
 
 	return nil
 }
