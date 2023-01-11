@@ -54,8 +54,8 @@ func create() error {
 	fmt.Printf("Created issue %s\n", key)
 
 	// Special format log line to set output for the action.
-	// See https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-run-steps-actions.
-	fmt.Printf("::set-output name=key::%s\n", key)
+	// See https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter
+	fmt.Printf("key=%s >> $GITHUB_OUTPUT\n", key)
 
 	return nil
 }
