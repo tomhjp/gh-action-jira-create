@@ -2,8 +2,8 @@ github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/ghodss/yaml v1.0.0 h1:wQHKEahhL6wmXdzwWG11gIVCkOv05bNOh+Rxn0yngAk=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
-github.com/hashicorp/gh-action-jira v0.0.0-20240508131258-e2edc116d3d2 h1:PjKMzw/L5AMtbX5GMAlsGhesYWwyCIIXF7vXgU5jLqw=
-github.com/hashicorp/gh-action-jira v0.0.0-20240508131258-e2edc116d3d2/go.mod h1:AOAnPd/eXMN6tcvRvxDfftBxu6qUtoPbcUbLgRhG2nw=
+github.com/hashicorp/gh-action-jira v0.3.0 h1:rQEGv+JoEds1L9yvdWoecESROnWny7McwFCJY2l3tGA=
+github.com/hashicorp/gh-action-jira v0.3.0/go.mod h1:AOAnPd/eXMN6tcvRvxDfftBxu6qUtoPbcUbLgRhG2nw=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
